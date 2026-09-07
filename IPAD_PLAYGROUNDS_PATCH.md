@@ -1,40 +1,12 @@
-# DroidKit – iPad Swift Playgrounds compatibility patch
+# DroidKit iPad / modern Swift patch v2
 
-This copy contains a small compatibility fix for newer Swift / Swift Playgrounds versions.
+This fork contains two compatibility fixes for the littleBits Droid Inventor Kit:
 
-## What changed
+1. Adds a fallback case to the debug view's Bluetooth event switch for newer AsyncBluetooth/Swift versions.
+2. Replaces the original linear motor/steering calculations with the calibrated w32 ControlHub values captured from the original Droid protocol.
 
-`Sources/DroidKit/View/Debug/DroidKitDebugView.swift`
+Key neutral values:
+- Drive stop: `0x89`
+- Steering center: `0x96`
 
-The event handler for AsyncBluetooth used a switch that only covered the event cases available when DroidKit was originally written. Newer AsyncBluetooth versions expose additional events, causing modern Swift to report:
-
-`Switch must be exhaustive`
-
-A `default` case was added to the debug-only event logger. Unknown/new events are ignored. This does not change movement, LED, sound, or connection commands.
-
-## Import name
-
-The module is still imported normally:
-
-```swift
-import DroidKit
-```
-
-A minimal SwiftUI view is:
-
-```swift
-import SwiftUI
-import DroidKit
-
-struct ContentView: View {
-    var body: some View {
-        DroidKitDebugView()
-    }
-}
-```
-
-## iPad note
-
-Swift Playgrounds treats remote Swift Packages as read-only. Put this patched package in a GitHub repository you control, then add that repository URL as the package dependency in your App Playground.
-
-Bluetooth permission is controlled by the host app / Swift Playgrounds environment, not by this library. If a Bluetooth permission or capability error appears after compilation, that is the next issue to address.
+The public API remains unchanged (`go(at:)`, `back(at:)`, `stop()`, `turn(by:)`, `endTurn()`).

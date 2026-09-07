@@ -39,9 +39,6 @@ public struct DroidKitDebugView: View {
             case .didDisconnectPeripheral(let peripheral, let isReconnecting, let error):
                 debugPrint("didDisconnectPeripheral: \(peripheral), \(isReconnecting), \(String(describing: error))")
             default:
-                // AsyncBluetooth has added additional event cases over time.
-                // This debug view only logs events, so safely ignore events that
-                // DroidKit does not explicitly need to display.
                 break
             }
         }
