@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "asyncbluetooth",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/manolofdez/AsyncBluetooth",
+      "state" : {
+        "revision" : "9ed2461064d158297b7450722e0883332f623751",
+        "version" : "1.9.0"
+      }
+    },
+    {
+      "identity" : "combineasyncable",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/crane-hiromu/CombineAsyncable",
+      "state" : {
+        "revision" : "c00058215e7d3e6b124eaeffa69694c096ab18af",
+        "version" : "0.3.2"
+      }
+    },
+    {
+      "identity" : "swiftuijoystick",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/michael94ellis/SwiftUIJoystick",
+      "state" : {
+        "revision" : "5bd303cdafb369a70a45c902538b42dd3c5f4d65",
+        "version" : "1.5.0"
+      }
+    }
+  ],
+  "version" : 2
+}
